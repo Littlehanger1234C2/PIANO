@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Piano Style</title>
+<script src="JZZ.js"></script>
+<script src="JZZ.synth.Tiny.js"></script>
+<script src="JZZ.input.Kbd.js"></script>
+</head>
+
+<body>
+<h1>Piano Style</h1>
+
+<div id=piano></div>
+
+<script><!--
+JZZ.synth.Tiny.register();
+
+JZZ.input.Kbd({ at:'piano', pos:'W', ww:21, bw:12, from:'C5', to:'B6' })
+  .and(function(){
+    this.getKeys().setStyle({ borderColor:'#888', borderTopRightRadius:'5px', borderBottomRightRadius:'5px' });
+    this.getWhiteKeys('C5', 'B5').setStyle({ backgroundColor:'#e00' }, { });
+    this.getBlackKeys('C5', 'B5').setStyle({ backgroundColor:'#fff' }, { });
+  }).connect(JZZ().openMidiOut());
+--></script>
+
+</body>
+</html>
